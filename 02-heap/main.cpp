@@ -4,23 +4,8 @@
 #include "heap.h"
 using namespace std;
 
-template<typename T>
-void heapSort1(T arr[], int n){
-    MaxHeap<T> maxheap = MaxHeap<T>(n);
-    for(int i = 0; i < n; i++){
-        maxheap.insert(arr[i]);
-    }
-    for(int i = n-1; i >=0; i--){
-        arr[i] = maxheap.pop();
-    }
-}
-template<typename T>
-void heapsort2(T arr[], int n){
-    MaxHeap<T> maxheap = MaxHeap<T>(arr, n);
-    for(int i = n-1; i >= 0; i--){
-        arr[i] = maxheap.pop();
-    }
-}
+
+   
 int main()
 {
     MaxHeap<int> maxheap = MaxHeap<int>(100);
@@ -32,12 +17,15 @@ int main()
         cout << maxheap.pop() << " ";
     }
     cout << endl;
-    int n = 1000000;
+    int n = 10000000;
     int * arr = SortTestHelper::generateRandomArray(n, 0, n);
     SortTestHelper::testSort("heapsort1", heapSort1, arr, n);
     int * arr2 = SortTestHelper::copyIntArray(arr, n);
     SortTestHelper::testSort("heapsort2", heapsort2, arr, n);
+    int * arr3 = SortTestHelper::copyIntArray(arr, n);
+    SortTestHelper::testSort("heapsort", heapsort, arr, n);
     delete[] arr;
     delete[] arr2;
+    delete[] arr3;
     return 0;
 }
