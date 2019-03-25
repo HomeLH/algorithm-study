@@ -4,8 +4,6 @@
 #include "heap.h"
 using namespace std;
 
-
-   
 int main()
 {
     MaxHeap<int> maxheap = MaxHeap<int>(100);
