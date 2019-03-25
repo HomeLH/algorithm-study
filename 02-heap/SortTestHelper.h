@@ -46,7 +46,7 @@ namespace SortTestHelper {
     // 深拷贝， 浅拷贝
 	int * copyIntArray(int a[], int n) {
 		int *arr = new int[n];
-//		copy(a, a + n, arr);
+//        copy(a, a + n, arr);
         for(int i = 0; i < n; i++){
             arr[i] = a[i];
         }
